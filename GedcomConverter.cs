@@ -123,12 +123,12 @@ namespace GEDCOMtoXML
 
 			// run the transformation
 			XslCompiledTransform xslTrans = new XslCompiledTransform();
-			xslTrans.Load(@"E:\GitHub\GedcomGenerator\GedTransform.xslt");
+			xslTrans.Load(@"E:\GitHub\lookmaan-philips-assignment\GedTransform.xslt");
 			if (!File.Exists(export_xml))
 				File.Create(export_xml);
 			XmlTextWriter xmlWriter = new XmlTextWriter(export_xml, null);
 			xslTrans.Transform(xmlDoc, null, xmlWriter);			
-			xmlDoc.Save(@"E:\GitHub\GedcomGenerator\Output\GetcomTransformedOutput.xml");
+			xmlDoc.Save(@"E:\GitHub\lookmaan-philips-assignment\Output\GetcomTransformedOutput.xml");
 			Console.WriteLine("Your searched ouput....");
 			Console.WriteLine();
 			Console.WriteLine(xmlDoc.InnerXml);

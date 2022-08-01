@@ -23,9 +23,11 @@ namespace ConsoleApp2
             Console.WriteLine("Press Enter key to continue after entering the Id value....");
             Console.WriteLine();
             string idFilter = Console.ReadLine();            
-            string import_ged = @"E:\GitHub\GedcomGenerator\Input\Genealogical_data.txt";
+            string import_ged = @"E:\GitHub\lookmaan-philips-assignment\Input\Genealogical_data.txt";
             string export_xml = "output.xml";           
-            GEDCOMtoXML.Converter.ConvertXML(import_ged, export_xml, idFilter);
+            GEDCOMtoXML.Converter.ConvertXML(import_ged, export_xml, idFilter);            
+            Console.WriteLine("Also check the XML transformed genealogical output in the folder E:\\GitHub\\lookmaan-philips-assignment\\Output\\GetcomTransformedOutput.xml");
+            Console.ReadLine();
         }
     }
 }
