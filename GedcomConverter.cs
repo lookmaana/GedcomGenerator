@@ -6,30 +6,38 @@ using System.Xml.Xsl;
 
 namespace GEDCOMtoXML
 {
-
+    /// <summary>
+    /// This class helps to read the genealogical file and convert into XML output
+    /// </summary>
     public class Converter
 	{
+		/// <summary>
+		/// This method is used to identify the Tag from genealogical file
+		/// </summary>
+		/// <param name="val">It carries the tag value</param>
+		/// <returns></returns>
 		static private bool IsTag(string val)
 		{
-			String[] tags = new string[]{ "_MILT","_MDCL","_HEIG","_WEIG","FAMC","FAMS","ASSO","RESN","NAME","AKA","SEX",
-                                            "SUBM","ALIA","ANCI","DESI","RFN","AFN","REFN","RIN","CHAN","NOTE","SOUR","OBJE",
-                                            "BIRT","CHR","DEAT","BURI","CREM","ADOP","BAPM","BARM","BASM","BLES","CHRA","CONF",
-                                            "FCOM","ORDN","NATU","EMIG","IMMI","CENS","PROB","WILL","GRAD","RETI","EVEN",
-                                            "CAST","DSCR","EDUC","IDNO","NATI","NCHI","NMR","OCCU","PROP","RELI","RESI","SSN",
-                                            "TITL","FACT","ADDR","PHON","EMAIL","FAX","WWW","REFN", "TYPE", "HEAD", "CHAR", "VERS", "CORP",
-                                            "GEDC", "FORM", "INDI", "DATE", "CHAR","SOUR","DEST","SUBM","SUBN","COPR","LANG","PLAC","DATE","NOTE",
-                                            "DATA", "TEXT","PAGE","_APID","MARR","CONT", "CONC","_DEST", "_ORIG","FAM","AUTH","REPO", "PUBL","TRLR",
-                                            "CHIL", "HUSB", "_FREL","WIFE","_MREL"};
-
-
+			String[] tags = new string[]{   "INDI","NAME","SEX","BIRT","DATE",
+											"PLAC","OCCU","FAMC","FAMS","NOTE",
+											"CHAN","DATE","DEAT","TITL","SOUR",
+											"CHIL","HUSB","FAM","MARR","DIV",
+											"WIFE","CONT","CONC","AUTH","PUBL","TRLR"
+										};
 			foreach (String t in tags)
 				if (t == val)
 					return true;
 
 			return false;
 		}
-
-		static public void ConvertXML(string import_ged, string export_xml,string idFilter)
+		/// <summary>
+		/// This method is to create the XML element based on the genealogical file format...
+		/// </summary>
+		/// <param name="import_ged_file">import path of geneological file</param>
+		/// <param name="export_xml_file">export path of geneological file</param>
+		/// <param name="idFilter">Id filter like "INDI", "FAM", "NOTE" etc....</param>
+		/// <returns></returns>
+		static public string ConvertXML(string import_ged_file, string export_xml_file,string idFilter)
 		{
 			// doing with XML
 			XmlDocument xmlDoc = new XmlDocument();
@@ -37,12 +45,12 @@ namespace GEDCOMtoXML
 			XmlElement rootNode = xmlDoc.CreateElement("GEDCOM");
 			xmlDoc.InsertBefore(xmlDeclaration, xmlDoc.DocumentElement);
 			xmlDoc.AppendChild(rootNode);
-			StreamReader sr = new StreamReader(import_ged);
+			StreamReader sr = new StreamReader(import_ged_file);
 			int prev_lvl = -1,
 				cur_lvl = 0;
 			XmlNode prevNode = rootNode;
 			int count = 0;
-			bool isSearchedIdFound = false;
+			bool isSearchedIdFound = false;			
 			while (!sr.EndOfStream)
 			{				
 				String line = sr.ReadLine();
@@ -51,8 +59,7 @@ namespace GEDCOMtoXML
 				//Start : Fileter the information till the searched ID found
 				if (elements[0] == "0" && count == 1 && elements[1] != "@" + idFilter + "@")
 				{
-					isSearchedIdFound = false;
-					break;
+                    break;
 				}
 				else if (elements[0] == "0" && elements[1] == "@" + idFilter + "@")
 				{
@@ -118,21 +125,20 @@ namespace GEDCOMtoXML
 				
 			}
 
-			// run the transformation
+			// run the transformation and create the xml output
 			XslCompiledTransform xslTrans = new XslCompiledTransform();
 			xslTrans.Load(@"E:\GitHub\lookmaan-philips-assignment\GedTransform.xslt");
-			if (!File.Exists(export_xml))
-				File.Create(export_xml);
-			XmlTextWriter xmlWriter = new XmlTextWriter(export_xml, null);
+			if (!File.Exists(export_xml_file))
+				File.Create(export_xml_file);
+			XmlTextWriter xmlWriter = new XmlTextWriter(export_xml_file, null);
 			xslTrans.Transform(xmlDoc, null, xmlWriter);			
 			xmlDoc.Save(@"E:\GitHub\lookmaan-philips-assignment\Output\GetcomTransformedOutput.xml");
 			Console.WriteLine("Your searched ouput....");
 			Console.WriteLine();
-			Console.WriteLine(xmlDoc.InnerXml);
-			Console.ReadLine();
+			Console.WriteLine(xmlDoc.InnerXml);	
 			xmlWriter.Close();
 			sr.Close();
-		}
-
+			return xmlDoc.InnerXml;
+		}		
 	}
 }
