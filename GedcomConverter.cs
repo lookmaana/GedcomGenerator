@@ -20,9 +20,9 @@ namespace GEDCOMtoXML
 		{
 			String[] tags = new string[]{   "INDI","NAME","SEX","BIRT","DATE",
 											"PLAC","OCCU","FAMC","FAMS","NOTE",
-											"CHAN","DATE","DEAT","TITL","SOUR",
+											"CHAN","DEAT","TITL","SOUR","TRLR",
 											"CHIL","HUSB","FAM","MARR","DIV",
-											"WIFE","CONT","CONC","AUTH","PUBL","TRLR"
+											"WIFE","CONT","CONC","AUTH","PUBL"
 										};
 			foreach (String t in tags)
 				if (t == val)

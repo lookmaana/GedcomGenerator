@@ -19,10 +19,7 @@
       </xsl:element>
       <xsl:element name="Sources">
         <xsl:apply-templates select="*/SOUR"/>
-      </xsl:element>
-      <!--<xsl:element name="Repositories">
-        <xsl:apply-templates select="*/REPO"/>
-      </xsl:element>-->
+      </xsl:element>      
     </xsl:element>
   </xsl:template>
 
@@ -35,10 +32,7 @@
       </xsl:attribute>
       <xsl:element name="Names">
         <xsl:apply-templates select="NAME"/>
-      </xsl:element>
-      <!--<xsl:element name="Residences">
-        <xsl:apply-templates select="RESI"/>
-      </xsl:element>-->
+      </xsl:element>      
       <xsl:element name="Events">
         <xsl:apply-templates select="BIRT | DEAT | EVEN"/>
       </xsl:element>
@@ -107,14 +101,6 @@
     <xsl:element name="FamilyLink">
       <xsl:copy-of select="@*"/>
       <xsl:value-of select="node()"/>
-    </xsl:element>
-  </xsl:template>
-
-  <xsl:template match="RESI">
-    <xsl:element name="Residence">
-      <xsl:copy-of select="@*"/>
-      <xsl:value-of select="node()"/>
-      <xsl:apply-templates select="*"/>
     </xsl:element>
   </xsl:template>
 
@@ -201,48 +187,8 @@
     </xsl:element>
   </xsl:template>
 
-  <xsl:template match="TEXT">
-    <xsl:element name="Text">
-      <xsl:copy-of select="@*"/>
-      <xsl:value-of select="node()"/>
-      <xsl:apply-templates select="*"/>
-    </xsl:element>
-  </xsl:template>
-
-  <xsl:template match="PAGE">
-    <xsl:element name="Page">
-      <xsl:copy-of select="@*"/>
-      <xsl:value-of select="node()"/>
-      <xsl:apply-templates select="*"/>
-    </xsl:element>
-  </xsl:template>
-
   <xsl:template match="PLAC">
     <xsl:element name="Place">
-      <xsl:copy-of select="@*"/>
-      <xsl:value-of select="node()"/>
-      <xsl:apply-templates select="*"/>
-    </xsl:element>
-  </xsl:template>
-
-  <xsl:template match="DATA">
-    <xsl:element name="Data">
-      <xsl:copy-of select="@*"/>
-      <xsl:value-of select="node()"/>
-      <xsl:apply-templates select="*"/>
-    </xsl:element>
-  </xsl:template>
-
-  <xsl:template match="REPO">
-    <xsl:element name="Repository">
-      <xsl:copy-of select="@*"/>
-      <xsl:value-of select="node()"/>
-      <xsl:apply-templates select="*"/>
-    </xsl:element>
-  </xsl:template>
-
-  <xsl:template match="ADDR">
-    <xsl:element name="Address">
       <xsl:copy-of select="@*"/>
       <xsl:value-of select="node()"/>
       <xsl:apply-templates select="*"/>
