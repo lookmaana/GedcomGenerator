@@ -1,21 +1,2 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<GEDCOM>
-  <INDI level="0" id="@I0001@">
-    <NAME level="1">Elizabeth Alexandra Mary /Windsor/</NAME>
-    <SEX level="1">F</SEX>
-    <BIRT level="1">
-      <DATE level="2">21 Apr 1926</DATE>
-      <PLAC level="2">17 Bruton Street, London, W1</PLAC>
-    </BIRT>
-    <OCCU level="1">Queen</OCCU>
-    <FAMC level="1" id="@F0003@">
-    </FAMC>
-    <FAMS level="1" id="@F0001@">
-    </FAMS>
-    <NOTE level="1" id="@N0002@">
-    </NOTE>
-    <CHAN level="1">
-      <DATE level="2">13 Dec 2003</DATE>
-    </CHAN>
-  </INDI>
-</GEDCOM>
+<GEDCOM />

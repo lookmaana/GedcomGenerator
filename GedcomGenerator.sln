@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GedcomGenerator", "GedcomGenerator.csproj", "{283E0AAF-7D0D-4A5F-8C12-D5222AF4C974}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GedcomGeneratorTest", "GedcomGeneratorTest\GedcomGeneratorTest.csproj", "{7EBC9AFF-1E40-409D-BD32-E255AF23A654}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GedcomGeneratorTest", "GedcomGeneratorTest\GedcomGeneratorTest.csproj", "{022A4671-F8DE-46DA-9425-07042A201FF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{283E0AAF-7D0D-4A5F-8C12-D5222AF4C974}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{283E0AAF-7D0D-4A5F-8C12-D5222AF4C974}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{283E0AAF-7D0D-4A5F-8C12-D5222AF4C974}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7EBC9AFF-1E40-409D-BD32-E255AF23A654}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7EBC9AFF-1E40-409D-BD32-E255AF23A654}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7EBC9AFF-1E40-409D-BD32-E255AF23A654}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7EBC9AFF-1E40-409D-BD32-E255AF23A654}.Release|Any CPU.Build.0 = Release|Any CPU
+		{022A4671-F8DE-46DA-9425-07042A201FF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{022A4671-F8DE-46DA-9425-07042A201FF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{022A4671-F8DE-46DA-9425-07042A201FF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{022A4671-F8DE-46DA-9425-07042A201FF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
