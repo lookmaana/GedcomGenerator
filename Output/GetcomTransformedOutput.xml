@@ -1,2 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<GEDCOM />
+<GEDCOM>
+  <SOUR level="0" id="@S0001@">
+    <AUTH level="1">glamis family</AUTH>
+    <PUBL level="1">Glamis Guide</PUBL>
+  </SOUR>
+</GEDCOM>
